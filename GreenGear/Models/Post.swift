@@ -7,3 +7,9 @@
 //
 
 import Foundation
+
+struct Post {
+    let content: String
+    let user: User
+    let comments: [Comment]?
+}

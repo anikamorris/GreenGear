@@ -7,10 +7,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Post Detail View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PostDetailViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,16 +22,16 @@
             </objects>
             <point key="canvasLocation" x="2450.7246376811595" y="123.88392857142857"/>
         </scene>
-        <!--Table View Controller-->
+        <!--All Posts-->
         <scene sceneID="L2N-cC-4m3">
             <objects>
-                <tableViewController id="8WO-Zj-KLs" sceneMemberID="viewController">
+                <tableViewController id="8WO-Zj-KLs" customClass="FeedTableViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="N0Z-Wi-8ZT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="200" id="pPF-wW-CmT">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="postCell" rowHeight="200" id="pPF-wW-CmT" customClass="PostCell" customModule="GreenGear" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="200"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pPF-wW-CmT" id="X5s-3k-xdg">
@@ -70,7 +70,7 @@
                                                 <constraint firstAttribute="width" constant="45" id="tOC-Ct-sdq"/>
                                             </constraints>
                                         </imageView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lgm-gf-79d">
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lgm-gf-79d">
                                             <rect key="frame" x="30" y="58" width="354" height="121"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                             <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -92,6 +92,12 @@
                                         <constraint firstItem="Lgm-gf-79d" firstAttribute="top" secondItem="eBJ-ul-x6G" secondAttribute="bottom" constant="3" id="xcz-Xj-Swk"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="avatarImageView" destination="eBJ-ul-x6G" id="w99-B3-NAm"/>
+                                    <outlet property="positionLabel" destination="5L6-X7-90y" id="bbb-Ia-12f"/>
+                                    <outlet property="postTextView" destination="Lgm-gf-79d" id="nlK-HU-OAd"/>
+                                    <outlet property="yearsActiveLabel" destination="V8m-jA-kbB" id="Rsk-v4-WK9"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -99,7 +105,7 @@
                             <outlet property="delegate" destination="8WO-Zj-KLs" id="XML-SC-4sl"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="aBT-rB-p4R"/>
+                    <navigationItem key="navigationItem" title="All Posts" id="aBT-rB-p4R"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYT-dJ-opb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

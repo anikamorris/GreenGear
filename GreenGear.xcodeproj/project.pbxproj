@@ -16,7 +16,10 @@
 		CF40A28824A6FA5000CBACB4 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28724A6FA5000CBACB4 /* FeedTableViewController.swift */; };
 		CF40A28A24A6FA8300CBACB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28924A6FA8300CBACB4 /* Post.swift */; };
 		CF40A28C24A6FA9000CBACB4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28B24A6FA9000CBACB4 /* Comment.swift */; };
-		CF40A29124A6FAE400CBACB4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A29024A6FAE400CBACB4 /* PostTableViewCell.swift */; };
+		CF40A29124A6FAE400CBACB4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A29024A6FAE400CBACB4 /* PostCell.swift */; };
+		CFC4833124A6FDD300EB7692 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4833024A6FDD300EB7692 /* User.swift */; };
+		CFC4833624A708CF00EB7692 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4833424A708CF00EB7692 /* CommentCell.swift */; };
+		CFC4833724A708CF00EB7692 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFC4833524A708CF00EB7692 /* CommentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +34,10 @@
 		CF40A28724A6FA5000CBACB4 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
 		CF40A28924A6FA8300CBACB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CF40A28B24A6FA9000CBACB4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
-		CF40A29024A6FAE400CBACB4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
+		CF40A29024A6FAE400CBACB4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
+		CFC4833024A6FDD300EB7692 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		CFC4833424A708CF00EB7692 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
+		CFC4833524A708CF00EB7692 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,7 +95,9 @@
 		CF40A28E24A6FABE00CBACB4 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				CF40A29024A6FAE400CBACB4 /* PostTableViewCell.swift */,
+				CF40A29024A6FAE400CBACB4 /* PostCell.swift */,
+				CFC4833424A708CF00EB7692 /* CommentCell.swift */,
+				CFC4833524A708CF00EB7692 /* CommentCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -99,6 +107,7 @@
 			children = (
 				CF40A28924A6FA8300CBACB4 /* Post.swift */,
 				CF40A28B24A6FA9000CBACB4 /* Comment.swift */,
+				CFC4833024A6FDD300EB7692 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -164,6 +173,7 @@
 				CF40A28024A6F16600CBACB4 /* LaunchScreen.storyboard in Resources */,
 				CF40A27D24A6F16600CBACB4 /* Assets.xcassets in Resources */,
 				CF40A27B24A6F16300CBACB4 /* Main.storyboard in Resources */,
+				CFC4833724A708CF00EB7692 /* CommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -174,10 +184,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF40A29124A6FAE400CBACB4 /* PostTableViewCell.swift in Sources */,
+				CF40A29124A6FAE400CBACB4 /* PostCell.swift in Sources */,
 				CF40A27824A6F16300CBACB4 /* PostDetailViewController.swift in Sources */,
 				CF40A28C24A6FA9000CBACB4 /* Comment.swift in Sources */,
 				CF40A27424A6F16300CBACB4 /* AppDelegate.swift in Sources */,
+				CFC4833124A6FDD300EB7692 /* User.swift in Sources */,
+				CFC4833624A708CF00EB7692 /* CommentCell.swift in Sources */,
 				CF40A27624A6F16300CBACB4 /* SceneDelegate.swift in Sources */,
 				CF40A28824A6FA5000CBACB4 /* FeedTableViewController.swift in Sources */,
 				CF40A28A24A6FA8300CBACB4 /* Post.swift in Sources */,

@@ -11,4 +11,8 @@ import UIKit
 
 class PostCell: UITableViewCell {
     
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var positionLabel: UILabel!
+    @IBOutlet weak var yearsActiveLabel: UILabel!
+    @IBOutlet weak var postTextView: UITextView!
 }
