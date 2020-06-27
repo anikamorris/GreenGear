@@ -9,21 +9,29 @@
 /* Begin PBXBuildFile section */
 		CF40A27424A6F16300CBACB4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A27324A6F16300CBACB4 /* AppDelegate.swift */; };
 		CF40A27624A6F16300CBACB4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A27524A6F16300CBACB4 /* SceneDelegate.swift */; };
-		CF40A27824A6F16300CBACB4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A27724A6F16300CBACB4 /* ViewController.swift */; };
+		CF40A27824A6F16300CBACB4 /* PostDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A27724A6F16300CBACB4 /* PostDetailViewController.swift */; };
 		CF40A27B24A6F16300CBACB4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF40A27924A6F16300CBACB4 /* Main.storyboard */; };
 		CF40A27D24A6F16600CBACB4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF40A27C24A6F16600CBACB4 /* Assets.xcassets */; };
 		CF40A28024A6F16600CBACB4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF40A27E24A6F16600CBACB4 /* LaunchScreen.storyboard */; };
+		CF40A28824A6FA5000CBACB4 /* FeedTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28724A6FA5000CBACB4 /* FeedTableViewController.swift */; };
+		CF40A28A24A6FA8300CBACB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28924A6FA8300CBACB4 /* Post.swift */; };
+		CF40A28C24A6FA9000CBACB4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28B24A6FA9000CBACB4 /* Comment.swift */; };
+		CF40A29124A6FAE400CBACB4 /* PostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A29024A6FAE400CBACB4 /* PostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CF40A27024A6F16300CBACB4 /* GreenGear.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GreenGear.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF40A27324A6F16300CBACB4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF40A27524A6F16300CBACB4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CF40A27724A6F16300CBACB4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CF40A27724A6F16300CBACB4 /* PostDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostDetailViewController.swift; sourceTree = "<group>"; };
 		CF40A27A24A6F16300CBACB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CF40A27C24A6F16600CBACB4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CF40A27F24A6F16600CBACB4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CF40A28124A6F16600CBACB4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF40A28724A6FA5000CBACB4 /* FeedTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedTableViewController.swift; sourceTree = "<group>"; };
+		CF40A28924A6FA8300CBACB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		CF40A28B24A6FA9000CBACB4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
+		CF40A29024A6FAE400CBACB4 /* PostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +64,43 @@
 		CF40A27224A6F16300CBACB4 /* GreenGear */ = {
 			isa = PBXGroup;
 			children = (
+				CF40A28F24A6FAC300CBACB4 /* Models */,
+				CF40A28E24A6FABE00CBACB4 /* Views */,
+				CF40A28D24A6FAB400CBACB4 /* Controllers */,
 				CF40A27324A6F16300CBACB4 /* AppDelegate.swift */,
 				CF40A27524A6F16300CBACB4 /* SceneDelegate.swift */,
-				CF40A27724A6F16300CBACB4 /* ViewController.swift */,
 				CF40A27924A6F16300CBACB4 /* Main.storyboard */,
 				CF40A27C24A6F16600CBACB4 /* Assets.xcassets */,
 				CF40A27E24A6F16600CBACB4 /* LaunchScreen.storyboard */,
 				CF40A28124A6F16600CBACB4 /* Info.plist */,
 			);
 			path = GreenGear;
+			sourceTree = "<group>";
+		};
+		CF40A28D24A6FAB400CBACB4 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CF40A27724A6F16300CBACB4 /* PostDetailViewController.swift */,
+				CF40A28724A6FA5000CBACB4 /* FeedTableViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		CF40A28E24A6FABE00CBACB4 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				CF40A29024A6FAE400CBACB4 /* PostTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		CF40A28F24A6FAC300CBACB4 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				CF40A28924A6FA8300CBACB4 /* Post.swift */,
+				CF40A28B24A6FA9000CBACB4 /* Comment.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +174,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF40A27824A6F16300CBACB4 /* ViewController.swift in Sources */,
+				CF40A29124A6FAE400CBACB4 /* PostTableViewCell.swift in Sources */,
+				CF40A27824A6F16300CBACB4 /* PostDetailViewController.swift in Sources */,
+				CF40A28C24A6FA9000CBACB4 /* Comment.swift in Sources */,
 				CF40A27424A6F16300CBACB4 /* AppDelegate.swift in Sources */,
 				CF40A27624A6F16300CBACB4 /* SceneDelegate.swift in Sources */,
+				CF40A28824A6FA5000CBACB4 /* FeedTableViewController.swift in Sources */,
+				CF40A28A24A6FA8300CBACB4 /* Post.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

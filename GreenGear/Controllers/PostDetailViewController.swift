@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PostDetailViewController.swift
 //  GreenGear
 //
 //  Created by Anika Morris on 6/26/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class PostDetailViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
