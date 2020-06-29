@@ -11,6 +11,7 @@ import UIKit
 class PostDetailViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var post: Post? = nil
+    var comments: [Comment]? = nil
     
     let postTextView: UITextView = {
         let textView = UITextView()
@@ -23,7 +24,8 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     let commentsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        
+        let nib = UINib(nibName: "CommentCell", bundle: nil)
+        tableView.register(nib, forCellReuseIdentifier: "commentCell")
         return tableView
     }()
 
@@ -33,9 +35,13 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         self.view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         commentsTableView.dataSource = self
         commentsTableView.delegate = self
-        guard let post = post else { return }
-        postTextView.text = post.content
         setupPostTextView()
+        setupCommentTableView()
+        guard let post = post else { return }
+        self.post = post
+        guard let comments = post.comments else { return }
+        self.comments = comments
+        postTextView.text = post.content
     }
     
     func setupPostTextView() {
@@ -48,13 +54,26 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         ])
     }
     
+    func setupCommentTableView() {
+        view.addSubview(commentsTableView)
+        NSLayoutConstraint.activate([
+            commentsTableView.topAnchor.constraint(equalTo: postTextView.bottomAnchor, constant: 12.0),
+            commentsTableView.leadingAnchor.constraint(equalTo: postTextView.leadingAnchor),
+            commentsTableView.trailingAnchor.constraint(equalTo: postTextView.trailingAnchor),
+            commentsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -15.0)
+        ])
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let post = post, let comments = post.comments else { return 0 }
         return comments.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        <#code#>
+        let cell = tableView.dequeueReusableCell(withIdentifier: "commentCell") as! CommentCell
+        guard let comments = self.comments else { return cell }
+        cell.commentLabel.text = comments[indexPath.row].content
+        return cell
     }
 }
 

@@ -10,9 +10,15 @@ import UIKit
 
 class CommentCell: UITableViewCell {
 
+    @IBOutlet weak var commentLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
