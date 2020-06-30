@@ -21,7 +21,7 @@ class CommentCell: UITableViewCell {
     var avatarImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.image = UIImage(systemName: "person")
+        imageView.image = UIImage(systemName: "person.circle")
         imageView.layer.cornerRadius = 20
         return imageView
     }()
@@ -29,19 +29,20 @@ class CommentCell: UITableViewCell {
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         setupCommentLabel()
+        setupAvatarImageView()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    private func setupImageView() {
+    private func setupAvatarImageView() {
         self.contentView.addSubview(avatarImageView)
         NSLayoutConstraint.activate([
             avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5.0),
-            avatarImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 5.0),
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5.0),
-            avatarImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: 5.0),
+            avatarImageView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -5.0),
+            avatarImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -15.0),
+            avatarImageView.widthAnchor.constraint(equalToConstant: 40.0)
         ])
     }
     
