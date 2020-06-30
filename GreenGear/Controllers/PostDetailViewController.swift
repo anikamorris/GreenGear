@@ -24,8 +24,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     let commentsTableView: UITableView = {
         let tableView = UITableView()
         tableView.translatesAutoresizingMaskIntoConstraints = false
-        let nib = UINib(nibName: "CommentCell", bundle: nil)
-        tableView.register(nib, forCellReuseIdentifier: "commentCell")
+        tableView.register(CommentCell.self, forCellReuseIdentifier: "commentCell")
         return tableView
     }()
 
@@ -33,10 +32,12 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         self.view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        
         commentsTableView.dataSource = self
         commentsTableView.delegate = self
         setupPostTextView()
         setupCommentTableView()
+        
         guard let post = post else { return }
         self.post = post
         guard let comments = post.comments else { return }
@@ -60,7 +61,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
             commentsTableView.topAnchor.constraint(equalTo: postTextView.bottomAnchor, constant: 12.0),
             commentsTableView.leadingAnchor.constraint(equalTo: postTextView.leadingAnchor),
             commentsTableView.trailingAnchor.constraint(equalTo: postTextView.trailingAnchor),
-            commentsTableView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -15.0)
+            commentsTableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 35.0)
         ])
     }
     
@@ -74,6 +75,10 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         guard let comments = self.comments else { return cell }
         cell.commentLabel.text = comments[indexPath.row].content
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 50
     }
 }
 

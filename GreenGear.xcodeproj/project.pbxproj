@@ -19,7 +19,6 @@
 		CF40A29124A6FAE400CBACB4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A29024A6FAE400CBACB4 /* PostCell.swift */; };
 		CFC4833124A6FDD300EB7692 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4833024A6FDD300EB7692 /* User.swift */; };
 		CFC4833624A708CF00EB7692 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4833424A708CF00EB7692 /* CommentCell.swift */; };
-		CFC4833724A708CF00EB7692 /* CommentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CFC4833524A708CF00EB7692 /* CommentCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		CF40A29024A6FAE400CBACB4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CFC4833024A6FDD300EB7692 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CFC4833424A708CF00EB7692 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
-		CFC4833524A708CF00EB7692 /* CommentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CommentCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +95,6 @@
 			children = (
 				CF40A29024A6FAE400CBACB4 /* PostCell.swift */,
 				CFC4833424A708CF00EB7692 /* CommentCell.swift */,
-				CFC4833524A708CF00EB7692 /* CommentCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -173,7 +170,6 @@
 				CF40A28024A6F16600CBACB4 /* LaunchScreen.storyboard in Resources */,
 				CF40A27D24A6F16600CBACB4 /* Assets.xcassets in Resources */,
 				CF40A27B24A6F16300CBACB4 /* Main.storyboard in Resources */,
-				CFC4833724A708CF00EB7692 /* CommentCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
