@@ -53,4 +53,7 @@ class FeedTableViewController: UITableViewController {
         navigationController?.pushViewController(postDetailVC, animated: true)
     }
     
+    @IBAction func addButtonTapped(_ sender: Any) {
+        
+    }
 }
