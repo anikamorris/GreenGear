@@ -19,6 +19,7 @@
 		CF40A29124A6FAE400CBACB4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A29024A6FAE400CBACB4 /* PostCell.swift */; };
 		CF4E702824AFD13B003B6D91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E702724AFD13B003B6D91 /* ProfileViewController.swift */; };
 		CF4E703624B6C7E8003B6D91 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E703524B6C7E8003B6D91 /* API.swift */; };
+		CF4E703824B6CB22003B6D91 /* NewPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E703724B6CB22003B6D91 /* NewPostViewController.swift */; };
 		CFC4833124A6FDD300EB7692 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4833024A6FDD300EB7692 /* User.swift */; };
 		CFC4833624A708CF00EB7692 /* CommentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFC4833424A708CF00EB7692 /* CommentCell.swift */; };
 /* End PBXBuildFile section */
@@ -38,6 +39,7 @@
 		CF40A29024A6FAE400CBACB4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
 		CF4E702724AFD13B003B6D91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CF4E703524B6C7E8003B6D91 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		CF4E703724B6CB22003B6D91 /* NewPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewPostViewController.swift; sourceTree = "<group>"; };
 		CFC4833024A6FDD300EB7692 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		CFC4833424A708CF00EB7692 /* CommentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -92,6 +94,7 @@
 				CF40A27724A6F16300CBACB4 /* PostDetailViewController.swift */,
 				CF40A28724A6FA5000CBACB4 /* FeedTableViewController.swift */,
 				CF4E702724AFD13B003B6D91 /* ProfileViewController.swift */,
+				CF4E703724B6CB22003B6D91 /* NewPostViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -199,6 +202,7 @@
 				CF40A27824A6F16300CBACB4 /* PostDetailViewController.swift in Sources */,
 				CF4E702824AFD13B003B6D91 /* ProfileViewController.swift in Sources */,
 				CF40A28C24A6FA9000CBACB4 /* Comment.swift in Sources */,
+				CF4E703824B6CB22003B6D91 /* NewPostViewController.swift in Sources */,
 				CF40A27424A6F16300CBACB4 /* AppDelegate.swift in Sources */,
 				CFC4833124A6FDD300EB7692 /* User.swift in Sources */,
 				CFC4833624A708CF00EB7692 /* CommentCell.swift in Sources */,
