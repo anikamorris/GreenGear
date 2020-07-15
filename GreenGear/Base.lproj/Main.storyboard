@@ -102,26 +102,53 @@
             </objects>
             <point key="canvasLocation" x="2657.971014492754" y="123.88392857142857"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="cvD-RI-I5l">
             <objects>
                 <viewController id="3BA-g0-E04" customClass="ProfileViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="OQN-mY-9vh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6qy-BT-Kup">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="400"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ReG-Wy-o9P">
+                                        <rect key="frame" x="143" y="136" width="128" height="128"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="128" id="4OG-z5-s9c"/>
+                                            <constraint firstAttribute="height" constant="128" id="E0o-yR-sSB"/>
+                                        </constraints>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ReG-Wy-o9P" firstAttribute="centerX" secondItem="6qy-BT-Kup" secondAttribute="centerX" id="5ub-AR-fJ7"/>
+                                    <constraint firstItem="ReG-Wy-o9P" firstAttribute="top" secondItem="6qy-BT-Kup" secondAttribute="top" constant="136" id="N2C-nh-0lo"/>
+                                    <constraint firstAttribute="height" constant="400" id="cMi-qX-Rnq"/>
+                                    <constraint firstAttribute="bottom" secondItem="ReG-Wy-o9P" secondAttribute="bottom" constant="136" id="tDe-YV-xk8"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="6qy-BT-Kup" firstAttribute="top" secondItem="OQN-mY-9vh" secondAttribute="top" id="B9g-JB-gmX"/>
+                            <constraint firstItem="MlD-cj-Wob" firstAttribute="trailing" secondItem="6qy-BT-Kup" secondAttribute="trailing" id="WgD-ky-crw"/>
+                            <constraint firstItem="6qy-BT-Kup" firstAttribute="leading" secondItem="MlD-cj-Wob" secondAttribute="leading" id="wba-od-SVr"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="MlD-cj-Wob"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Profile" id="rNw-2L-dLP"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P0R-gH-Z3e" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2658" y="832"/>
         </scene>
-        <!--Item-->
+        <!--Explore-->
         <scene sceneID="aLx-a5-eyg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0EZ-vg-eAW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="mVY-ol-gmY"/>
+                    <tabBarItem key="tabBarItem" title="Explore" image="magnifyingglass" catalog="system" id="mVY-ol-gmY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J48-Qg-SAt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -147,12 +174,38 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
+                        <segue destination="UB6-hx-Vad" kind="relationship" relationship="viewControllers" id="o2P-CQ-KR0"/>
                         <segue destination="0EZ-vg-eAW" kind="relationship" relationship="viewControllers" id="aXX-dO-O0v"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5hu-mN-n3l" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="837.68115942028987" y="123.88392857142857"/>
+            <point key="canvasLocation" x="713" y="529"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="AqZ-Nu-bhW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="UB6-hx-Vad" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Profile" image="person.circle" catalog="system" id="dU4-Nm-VqL"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ikl-Wc-GYi">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="tintColor" systemColor="systemTealColor" red="0.35294117650000001" green="0.7843137255" blue="0.98039215690000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3BA-g0-E04" kind="relationship" relationship="rootViewController" id="RT7-3i-FmN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z28-VZ-Kk2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1800" y="832"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="magnifyingglass" catalog="system" width="64" height="56"/>
+        <image name="person.circle" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
