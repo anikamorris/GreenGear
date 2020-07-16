@@ -20,7 +20,7 @@ class NewPostViewController: UIViewController {
     let postTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.font = UIFont(name: "Helvetica", size: 18.0)
+        textView.font = UIFont(name: "Helvetica", size: 16.0)
         textView.layer.cornerRadius = 10
         textView.clipsToBounds = true
         return textView
@@ -30,7 +30,7 @@ class NewPostViewController: UIViewController {
         let textField = TextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Title"
-        textField.font = UIFont(name: "Helvetica", size: 22.0)
+        textField.font = UIFont(name: "Helvetica", size: 18.0)
         textField.backgroundColor = .white
         textField.layer.cornerRadius = 5
         textField.clipsToBounds = true

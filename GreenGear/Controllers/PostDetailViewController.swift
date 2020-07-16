@@ -25,19 +25,23 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     let postTextView: UITextView = {
         let textView = UITextView()
         textView.translatesAutoresizingMaskIntoConstraints = false
+        
         textView.isEditable = false
         textView.font = UIFont(name: "Helvetica", size: 18.0)
         textView.textColor = .white
+        textView.contentInset = UIEdgeInsets(top: 10, left: 10, bottom: 0, right: 10)
+        
         textView.layer.cornerRadius = 8
         textView.clipsToBounds = true
-        textView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
+        
+        textView.backgroundColor = #colorLiteral(red: 0.5215686275, green: 0.2352941176, blue: 0.1333333333, alpha: 1)
         return textView
     }()
     
     let postBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.8235294118, green: 0.8039215686, blue: 0.8039215686, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         return view
     }()
     
@@ -54,7 +58,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = #colorLiteral(red: 0.8235294118, green: 0.8039215686, blue: 0.8039215686, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
         if let post = self.post {
             self.title = post.title
         }

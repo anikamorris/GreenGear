@@ -19,7 +19,9 @@ class FeedTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.tableView.backgroundColor = #colorLiteral(red: 0.5215686275, green: 0.2352941176, blue: 0.1333333333, alpha: 1)
+        self.tableView.separatorColor = .darkText
+        self.tableView.separatorInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
         let user = User(username: "bob", branch: "army", years: "2003-2007")
 //        let comment1 = Comment(content: "I hella feel you bro", user: user)
 //        let comment2 = Comment(content: "I hella feel you too bro", user: user)
@@ -41,9 +43,16 @@ class FeedTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostCell
         let post = posts[indexPath.row]
         cell.postTextView.text = post.body
+        cell.postTextView.layer.cornerRadius = 5
+        cell.postTextView.clipsToBounds = true
         cell.titleLabel.text = post.title
-        cell.yearsActiveLabel.text = "2001-2003"
-        cell.branchLabel.text = "Air Force"
+        if indexPath.row == 0 && post.title != "First Post" {
+            cell.branchLabel.text = UserDefaults.standard.string(forKey: "Branch")
+            cell.yearsActiveLabel.text = UserDefaults.standard.string(forKey: "Years")
+        } else {
+            cell.branchLabel.text = "Air Force"
+            cell.yearsActiveLabel.text = "2003-2011"
+        }
         return cell
     }
     

@@ -15,4 +15,5 @@ class PostCell: UITableViewCell {
     @IBOutlet weak var yearsActiveLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var postTextView: UITextView!
+
 }
