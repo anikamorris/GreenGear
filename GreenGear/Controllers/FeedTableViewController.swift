@@ -40,10 +40,10 @@ class FeedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "postCell", for: indexPath) as! PostCell
         let post = posts[indexPath.row]
-        let author = post.author
         cell.postTextView.text = post.body
+        cell.titleLabel.text = post.title
         cell.yearsActiveLabel.text = "2001-2003"
-        cell.positionLabel.text = "Air Force"
+        cell.branchLabel.text = "Air Force"
         return cell
     }
     
@@ -55,6 +55,13 @@ class FeedTableViewController: UITableViewController {
     
     @IBAction func addButtonTapped(_ sender: Any) {
         let newPostVC = NewPostViewController()
+        newPostVC.newPostDelegate = self
         self.navigationController?.present(newPostVC, animated: true, completion: nil)
+    }
+}
+
+extension FeedTableViewController: NewPostDelegate {
+    func appendPost(post: Post) {
+        self.posts.append(post)
     }
 }

@@ -9,7 +9,13 @@
 import Foundation
 import UIKit
 
+protocol NewPostDelegate {
+    func appendPost(post: Post)
+}
+
 class NewPostViewController: UIViewController {
+    
+    var newPostDelegate: NewPostDelegate!
     
     let postTextView: UITextView = {
         let textView = UITextView()
@@ -99,12 +105,17 @@ class NewPostViewController: UIViewController {
     }
     
     @objc func submitButtonTapped() {
-//        API().newPost()
         let title = titleTextField.text!
         let body = postTextView.text!
         let author = UserDefaults.standard.string(forKey: "Username")
         let newPost = Post(title: title, body: body, author: author!)
-        self.dismiss(animated: true, completion: nil)
+        API().newPost(post: newPost) { [weak self] (result) in
+            print(result)
+            guard let self = self else { return }
+            self.newPostDelegate.appendPost(post: newPost)
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
 }
 

@@ -23,44 +23,64 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" spacing="200" translatesAutoresizingMaskIntoConstraints="NO" id="7xf-ue-0VQ">
-                                            <rect key="frame" x="35" y="19" width="336" height="20.5"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="SqH-Q5-mMl">
+                                            <rect key="frame" x="20" y="19" width="369" height="162"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Branch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5L6-X7-90y">
-                                                    <rect key="frame" x="0.0" y="0.0" width="54.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POH-D3-N3h">
+                                                    <rect key="frame" x="0.0" y="0.0" width="349" height="26"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1997-2009" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8m-jA-kbB">
-                                                    <rect key="frame" x="254.5" y="0.0" width="81.5" height="20.5"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                <stackView opaque="NO" contentMode="scaleToFill" alignment="top" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="es5-mT-J0H">
+                                                    <rect key="frame" x="0.0" y="30" width="349" height="18"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" text="Branch" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5L6-X7-90y">
+                                                            <rect key="frame" x="0.0" y="0.0" width="268" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1997-2009" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V8m-jA-kbB">
+                                                            <rect key="frame" x="272" y="0.0" width="77" height="18"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                            <color key="textColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lgm-gf-79d">
+                                                    <rect key="frame" x="0.0" y="52" width="359" height="110"/>
+                                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="110" id="tRv-6P-4Sa"/>
+                                                    </constraints>
+                                                    <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                                    <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                </textView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="POH-D3-N3h" secondAttribute="trailing" constant="20" symbolic="YES" id="7qP-oU-b8U"/>
+                                                <constraint firstItem="Lgm-gf-79d" firstAttribute="top" secondItem="es5-mT-J0H" secondAttribute="bottom" constant="4" id="CxS-Hs-E7f"/>
+                                                <constraint firstAttribute="trailing" secondItem="es5-mT-J0H" secondAttribute="trailing" constant="20" symbolic="YES" id="Wcu-PS-PYM"/>
+                                                <constraint firstAttribute="trailing" secondItem="Lgm-gf-79d" secondAttribute="trailing" constant="10" id="p07-IW-7Yh"/>
+                                                <constraint firstItem="es5-mT-J0H" firstAttribute="top" secondItem="POH-D3-N3h" secondAttribute="bottom" constant="4" id="tsy-mB-pnG"/>
+                                            </constraints>
                                         </stackView>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Lgm-gf-79d">
-                                            <rect key="frame" x="30" y="42.5" width="354" height="136.5"/>
-                                            <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                            <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                        </textView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="7xf-ue-0VQ" firstAttribute="top" secondItem="X5s-3k-xdg" secondAttribute="topMargin" constant="8" id="9CX-gI-c40"/>
-                                        <constraint firstItem="Lgm-gf-79d" firstAttribute="leading" secondItem="X5s-3k-xdg" secondAttribute="leadingMargin" constant="10" id="9qp-AW-ZZ7"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Lgm-gf-79d" secondAttribute="bottom" constant="10" id="Ujc-2p-Yfi"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="Lgm-gf-79d" secondAttribute="trailing" constant="10" id="Ydd-Yf-eGj"/>
-                                        <constraint firstItem="Lgm-gf-79d" firstAttribute="top" secondItem="7xf-ue-0VQ" secondAttribute="bottom" constant="3" id="bGb-NY-Qn3"/>
-                                        <constraint firstItem="7xf-ue-0VQ" firstAttribute="leading" secondItem="X5s-3k-xdg" secondAttribute="leadingMargin" constant="15" id="gx6-sH-CCu"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="SqH-Q5-mMl" secondAttribute="bottom" constant="8" id="5Lf-ug-hDZ"/>
+                                        <constraint firstItem="SqH-Q5-mMl" firstAttribute="top" secondItem="X5s-3k-xdg" secondAttribute="topMargin" constant="8" id="E7k-iz-g0f"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="SqH-Q5-mMl" secondAttribute="trailing" constant="5" id="POD-uF-ueC"/>
+                                        <constraint firstItem="SqH-Q5-mMl" firstAttribute="leading" secondItem="X5s-3k-xdg" secondAttribute="leadingMargin" id="wZc-ne-U9x"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <outlet property="positionLabel" destination="5L6-X7-90y" id="bbb-Ia-12f"/>
+                                    <outlet property="branchLabel" destination="5L6-X7-90y" id="dpy-7L-sfd"/>
                                     <outlet property="postTextView" destination="Lgm-gf-79d" id="nlK-HU-OAd"/>
+                                    <outlet property="titleLabel" destination="POH-D3-N3h" id="QMr-LN-z1v"/>
                                     <outlet property="yearsActiveLabel" destination="V8m-jA-kbB" id="Rsk-v4-WK9"/>
                                 </connections>
                             </tableViewCell>

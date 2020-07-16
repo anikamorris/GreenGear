@@ -46,14 +46,36 @@ class API {
     }
     
     // Saves new post to the database with user's username
-    func newPost() {
+    func newPost(post: Post, _ completion: @escaping (Result<Any>) -> ()) {
         let session = URLSession.shared
-        let url = URL(string: "https://green-gear-ld.herokuapp.com/api/user/create/")
+        let url = URL(string: "https://green-gear-ld.herokuapp.com/api/post/create/")
         var request = URLRequest(url: url!)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
+        let jsonData = try! JSONEncoder().encode(post)
+        request.httpBody = jsonData
+        
+        session.dataTask(with: request) { data, response, error in
+            if error != nil { print("POST Request: Communication error: \(error!)") }
+            if data != nil {
+                do {
+                    let resultObject = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                    DispatchQueue.main.async(execute: {
+                        completion(Result.success(resultObject))
+                    })
+                } catch {
+                     DispatchQueue.main.async(execute: {
+                        completion(Result.failure(NetworkError.couldNotParse))
+                     })
+                }
+            } else {
+                DispatchQueue.main.async(execute: {
+                    completion(Result.failure(NetworkError.noResponse))
+                })
+            }
+        }.resume()
     }
     
     // Returns all posts in the database
