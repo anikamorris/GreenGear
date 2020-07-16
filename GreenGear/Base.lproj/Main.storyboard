@@ -28,7 +28,7 @@
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="POH-D3-N3h">
                                                     <rect key="frame" x="0.0" y="0.0" width="349" height="26"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="22"/>
+                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="22"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -188,11 +188,11 @@
             </objects>
             <point key="canvasLocation" x="2658" y="832"/>
         </scene>
-        <!--Explore-->
+        <!--Topics-->
         <scene sceneID="aLx-a5-eyg">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0EZ-vg-eAW" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Explore" image="magnifyingglass" catalog="system" id="mVY-ol-gmY"/>
+                    <tabBarItem key="tabBarItem" title="Topics" image="magnifyingglass" catalog="system" id="mVY-ol-gmY"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="J48-Qg-SAt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>

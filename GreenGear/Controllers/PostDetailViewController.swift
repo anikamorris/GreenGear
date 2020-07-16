@@ -17,7 +17,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Helvetica", size: 22.0)
-        label.textColor = .white
+        label.textColor = .darkText
         label.textAlignment = .center
         return label
     }()
@@ -37,7 +37,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     let postBackgroundView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = #colorLiteral(red: 0.9465444684, green: 0.9465444684, blue: 0.9465444684, alpha: 1)
+        view.backgroundColor = #colorLiteral(red: 0.8235294118, green: 0.8039215686, blue: 0.8039215686, alpha: 1)
         return view
     }()
     
@@ -47,14 +47,14 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.register(CommentCell.self, forCellReuseIdentifier: "commentCell")
         tableView.layer.cornerRadius = 8
         tableView.clipsToBounds = true
-        tableView.backgroundColor = #colorLiteral(red: 0.9465444684, green: 0.9465444684, blue: 0.9465444684, alpha: 1)
+        tableView.backgroundColor = .white
         return tableView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = #colorLiteral(red: 0.5215686275, green: 0.2352941176, blue: 0.1333333333, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.8235294118, green: 0.8039215686, blue: 0.8039215686, alpha: 1)
         if let post = self.post {
             self.title = post.title
         }

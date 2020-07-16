@@ -9,11 +9,6 @@
 import Foundation
 import UIKit
 
-enum ProfileState {
-    case saved
-    case edit
-}
-
 class ProfileViewController: UIViewController {
     
     @IBOutlet weak var usernameTextField: UITextField!
@@ -22,20 +17,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var saveButton: UIButton!
     
     var user: User?
-    
-    var profileState: ProfileState = .edit {
-        didSet {
-            switch profileState {
-            case .edit: editState()
-            case .saved: savedState()
-            }
-        }
-    }
+    var hasBeenSaved: Bool = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSaveButton()
         if let _ = UserDefaults.standard.string(forKey: "UserId") {
+            hasBeenSaved = true
+            self.savedState()
             usernameTextField.text = UserDefaults.standard.string(forKey: "Username")
             branchTextField.text = UserDefaults.standard.string(forKey: "Branch")
             yearsTextField.text = UserDefaults.standard.string(forKey: "Years")
@@ -46,36 +35,47 @@ class ProfileViewController: UIViewController {
         saveButton.layer.cornerRadius = 5
         saveButton.clipsToBounds = true
         saveButton.layer.borderWidth = 1
-        saveButton.layer.borderColor = UIColor.darkText.cgColor
+        saveButton.layer.borderColor = UIColor.white.cgColor
         saveButton.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
-        let username = usernameTextField.text!
-        let years = yearsTextField.text!
-        let branch = branchTextField.text!
-        let user = User(username: username, branch: branch, years: years)
-        self.user = user
-        API().createUser(user: user) { [weak self] (result) in
-            guard let self = self else { return }
-            switch result {
-            case let .success(id):
-                let stringId = id as? String
-                if let safeId = stringId {
-                    self.saveUserToUserDefaults(
-                        id: safeId,
-                        username: self.user!.username,
-                        branch: self.user!.branch,
-                        years: self.user!.years
-                    )
-                    self.profileState = .saved
-                    self.showAlert(title: "Success", message: "Profile saved!")
-                } else {
-                    self.showAlert(title: "Error", message: "Unique username required.")
+        if hasBeenSaved == false {
+            showSpinner(onView: self.view)
+            let username = usernameTextField.text!
+            let years = yearsTextField.text!
+            let branch = branchTextField.text!
+            let user = User(username: username, branch: branch, years: years)
+            self.user = user
+            API().createUser(user: user) { [weak self] (result) in
+                guard let self = self else { return }
+                switch result {
+                case let .success(id):
+                    let stringId = id as? String
+                    if let safeId = stringId {
+                        self.saveUserToUserDefaults(
+                            id: safeId,
+                            username: self.user!.username,
+                            branch: self.user!.branch,
+                            years: self.user!.years
+                        )
+                        self.savedState()
+                        self.hasBeenSaved.toggle()
+                        print("has been saved: \(self.hasBeenSaved)")
+                        self.removeSpinner()
+                        self.showAlert(title: "Success", message: "Profile saved!")
+                    } else {
+                        self.removeSpinner()
+                        self.showAlert(title: "Error", message: "Unique username required.")
+                    }
+                case let .failure(error):
+                    self.removeSpinner()
+                    self.showAlert(title: "Error", message: error.localizedDescription)
                 }
-            case let .failure(error):
-                self.showAlert(title: "Error", message: error.localizedDescription)
             }
+        } else {
+            editState()
+            hasBeenSaved.toggle()
         }
     }
     
@@ -86,15 +86,15 @@ class ProfileViewController: UIViewController {
         UserDefaults.standard.set(years, forKey: "Years")
     }
     
-    func editState() {
-        saveButton.titleLabel!.text = "Save"
+    public func editState() {
+        saveButton.setTitle("Save", for: .normal)
         usernameTextField.isUserInteractionEnabled = true
         yearsTextField.isUserInteractionEnabled = true
         branchTextField.isUserInteractionEnabled = true
     }
     
-    func savedState() {
-        saveButton.titleLabel!.text = "Edit"
+    public func savedState() {
+        saveButton.setTitle("Edit", for: .normal)
         usernameTextField.isUserInteractionEnabled = false
         yearsTextField.isUserInteractionEnabled = false
         branchTextField.isUserInteractionEnabled = false
@@ -105,4 +105,30 @@ class ProfileViewController: UIViewController {
         alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: nil))
         self.present(alert, animated: true)
     }
+}
+
+var vSpinner: UIView?
+extension UIViewController {
+    func showSpinner(onView : UIView) {
+        let spinnerView = UIView.init(frame: onView.bounds)
+        spinnerView.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let ai = UIActivityIndicatorView.init(style: .large)
+        ai.startAnimating()
+        ai.center = spinnerView.center
+        
+        DispatchQueue.main.async {
+            spinnerView.addSubview(ai)
+            onView.addSubview(spinnerView)
+        }
+        
+        vSpinner = spinnerView
+    }
+    
+    func removeSpinner() {
+        DispatchQueue.main.async {
+            vSpinner?.removeFromSuperview()
+            vSpinner = nil
+        }
+    }
+
 }
