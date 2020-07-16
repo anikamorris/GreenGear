@@ -50,6 +50,11 @@ class FeedTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let postDetailVC = PostDetailViewController()
         postDetailVC.post = posts[indexPath.row]
+        
+        let backItem = UIBarButtonItem()
+        backItem.title = ""
+        navigationItem.backBarButtonItem = backItem
+        
         navigationController?.pushViewController(postDetailVC, animated: true)
     }
     

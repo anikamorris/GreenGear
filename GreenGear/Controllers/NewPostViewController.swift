@@ -25,8 +25,8 @@ class NewPostViewController: UIViewController {
         return textView
     }()
     
-    let titleTextField: UITextField = {
-        let textField = UITextField()
+    let titleTextField: TextField = {
+        let textField = TextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Title"
         textField.backgroundColor = .white
@@ -119,3 +119,19 @@ class NewPostViewController: UIViewController {
     }
 }
 
+class TextField: UITextField {
+
+    let padding = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+
+    override open func textRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func placeholderRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+
+    override open func editingRect(forBounds bounds: CGRect) -> CGRect {
+        return bounds.inset(by: padding)
+    }
+}
