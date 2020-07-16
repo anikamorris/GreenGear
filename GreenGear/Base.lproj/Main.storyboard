@@ -10,7 +10,7 @@
         <!--All Posts-->
         <scene sceneID="L2N-cC-4m3">
             <objects>
-                <tableViewController hidesBottomBarWhenPushed="YES" id="8WO-Zj-KLs" customClass="FeedTableViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FeedVC" hidesBottomBarWhenPushed="YES" id="8WO-Zj-KLs" customClass="FeedTableViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="N0Z-Wi-8ZT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -100,7 +100,23 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BYT-dJ-opb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2657.971014492754" y="123.88392857142857"/>
+            <point key="canvasLocation" x="3326" y="124"/>
+        </scene>
+        <!--Topics View Controller-->
+        <scene sceneID="Yer-PX-VJE">
+            <objects>
+                <viewController id="ije-jk-4Hp" customClass="TopicsViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ew9-Yr-oOG">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="px9-74-1jx"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Bvz-3v-Xcb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qvF-AP-lsU" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2574" y="124"/>
         </scene>
         <!--Profile-->
         <scene sceneID="cvD-RI-I5l">
@@ -179,7 +195,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="8WO-Zj-KLs" kind="relationship" relationship="rootViewController" id="UFU-YH-WxL"/>
+                        <segue destination="ije-jk-4Hp" kind="relationship" relationship="rootViewController" id="Z8f-72-bux"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="He0-NF-nmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
