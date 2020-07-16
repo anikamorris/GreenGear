@@ -40,9 +40,9 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         
         guard let post = post else { return }
         self.post = post
-        guard let comments = post.comments else { return }
-        self.comments = comments
-        postTextView.text = post.content
+//        guard let comments = post.comments else { return }
+//        self.comments = comments
+        postTextView.text = post.body
     }
     
     func setupPostTextView() {
@@ -66,8 +66,9 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        guard let post = post, let comments = post.comments else { return 0 }
-        return comments.count
+//        guard let post = post, let comments = post.comments else { return 0 }
+//        return comments.count
+        return 2
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

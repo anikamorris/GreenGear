@@ -8,8 +8,15 @@
 
 import Foundation
 
-struct Post {
-    let content: String
-    let user: User
-    let comments: [Comment]?
+struct Post: Codable {
+    let title: String
+    let body: String
+    let author: String
 }
+
+struct PostAPIResponse: Decodable {
+    let success: Bool
+    let result: [Post]
+    
+}
+

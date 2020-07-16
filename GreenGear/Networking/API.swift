@@ -45,12 +45,45 @@ class API {
         }).resume()
     }
     
-    func getUser() {
+    // Saves new post to the database with user's username
+    func newPost() {
+        let session = URLSession.shared
+        let url = URL(string: "https://green-gear-ld.herokuapp.com/api/user/create/")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
         
     }
     
     // Returns all posts in the database
-    func getAllPosts() {
+    func getAllPosts(_ completion: @escaping (Result<Any>) -> ()) {
+        let session = URLSession.shared
+        let url = URL(string: "https://green-gear-ld.herokuapp.com/api/post/retrieve/")
+        let request = URLRequest(url: url!)
+        session.dataTask(with: request) { data, response, error in
+            if let error = error { return }
+            let responseResult = Response.handleResponse(for: response as! HTTPURLResponse)
+            switch responseResult {
+            case let .success(message):
+                guard let data = data else {
+                    DispatchQueue.main.async {
+                        completion(Result.failure(NetworkError.noData))
+                    }
+                    return
+                }
+                let result = try? JSONDecoder().decode(PostAPIResponse.self, from: data)
+                guard result != nil else {
+                    print("\n" + String(decoding: data, as: UTF8.self))
+                    return
+                }
+//                completion(Result.success(result!.articles))
+            case let .failure(error):
+                DispatchQueue.main.async {
+                    completion(Result.failure(error))
+                }
+            }
+        }
         
     }
     
@@ -61,11 +94,6 @@ class API {
     
     // Returns single post with comments
     func getPost(postId: Int) {
-        
-    }
-    
-    // Saves new post to the database with user's user id
-    func newPost() {
         
     }
     
