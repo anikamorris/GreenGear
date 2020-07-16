@@ -26,11 +26,12 @@ class API {
 //            Response.handleResponse(for: response as! HTTPURLResponse)
             if data != nil {
                 do {
-                    let resultObject = try JSONSerialization.jsonObject(with: data!, options: [])
-                     DispatchQueue.main.async(execute: {
-                        print("Results from POST request:\n\(resultObject)")
-                        completion(Result.success(resultObject))
-                     })
+                    let resultObject = try JSONSerialization.jsonObject(with: data!, options: []) as! [String: Any]
+                    let result = resultObject["result"] as? [String: Any]
+                    let id = result?["_id"]
+                    DispatchQueue.main.async(execute: {
+                        completion(Result.success(id as Any))
+                    })
                 } catch {
                      DispatchQueue.main.async(execute: {
                         completion(Result.failure(NetworkError.couldNotParse))

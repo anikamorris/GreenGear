@@ -21,7 +21,14 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var branchTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
-    var profileState: ProfileState = .edit
+    var profileState: ProfileState = .edit {
+        didSet {
+            switch profileState {
+            case .edit: editState()
+            case .saved: savedState()
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,14 +42,34 @@ class ProfileViewController: UIViewController {
         API().createUser(user: user) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
-            case let .success(userInfo):
-                print(userInfo)
-                self.profileState = .saved
-                self.showAlert(title: "Success", message: "Profile saved!")
+            case let .success(id):
+                let stringId = id as? String
+                if let safeId = stringId {
+                    UserDefaults.standard.set(safeId, forKey: "UserId")
+                    self.profileState = .saved
+                    self.showAlert(title: "Success", message: "Profile saved!")
+                } else {
+                    self.showAlert(title: "Error saving profile", message: "Try Again")
+                }
+                
             case let .failure(error):
                 self.showAlert(title: "Error saving profile", message: error.localizedDescription)
             }
         }
+    }
+    
+    func editState() {
+        saveButton.titleLabel!.text = "Save"
+        usernameTextField.isUserInteractionEnabled = true
+        yearsTextField.isUserInteractionEnabled = true
+        branchTextField.isUserInteractionEnabled = true
+    }
+    
+    func savedState() {
+        saveButton.titleLabel!.text = "Edit"
+        usernameTextField.isUserInteractionEnabled = false
+        yearsTextField.isUserInteractionEnabled = false
+        branchTextField.isUserInteractionEnabled = false
     }
     
     func showAlert(title: String, message: String) {
