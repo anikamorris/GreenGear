@@ -44,7 +44,7 @@ class TopicCell: UICollectionViewCell {
     }
     
     func set(topic: String) {
-        topicLabel.text = topic.capitalized
+        topicLabel.text = topic
     }
 
 }

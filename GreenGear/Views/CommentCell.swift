@@ -28,8 +28,8 @@ class CommentCell: UITableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.backgroundColor = #colorLiteral(red: 0.9471063018, green: 0.9471063018, blue: 0.9471063018, alpha: 1)
         setupCommentLabel()
-        setupAvatarImageView()
     }
     
     required init?(coder: NSCoder) {

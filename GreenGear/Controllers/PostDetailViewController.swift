@@ -17,6 +17,7 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont(name: "Helvetica", size: 22.0)
+        label.textColor = .white
         label.textAlignment = .center
         return label
     }()
@@ -26,9 +27,18 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         textView.translatesAutoresizingMaskIntoConstraints = false
         textView.isEditable = false
         textView.font = UIFont(name: "Helvetica", size: 18.0)
+        textView.textColor = .white
         textView.layer.cornerRadius = 8
         textView.clipsToBounds = true
+        textView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
         return textView
+    }()
+    
+    let postBackgroundView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = #colorLiteral(red: 0.9465444684, green: 0.9465444684, blue: 0.9465444684, alpha: 1)
+        return view
     }()
     
     let commentsTableView: UITableView = {
@@ -37,20 +47,29 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         tableView.register(CommentCell.self, forCellReuseIdentifier: "commentCell")
         tableView.layer.cornerRadius = 8
         tableView.clipsToBounds = true
+        tableView.backgroundColor = #colorLiteral(red: 0.9465444684, green: 0.9465444684, blue: 0.9465444684, alpha: 1)
         return tableView
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.view.backgroundColor = #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.5215686275, green: 0.2352941176, blue: 0.1333333333, alpha: 1)
         if let post = self.post {
             self.title = post.title
         }
         commentsTableView.dataSource = self
         commentsTableView.delegate = self
+        
+        setupPostBackgroundView()
         setupPostTextView()
         setupTitleLabel()
+        
+        self.comments = [
+            Comment(content: "Yay first comment", user: "Ned"),
+            Comment(content: "Wow second comment", user: "Andy"),
+            Comment(content: "Cool third comment", user: "Lindsay")
+        ]
         
         guard let post = post else { return }
         self.post = post
@@ -65,20 +84,30 @@ class PostDetailViewController: UIViewController, UITableViewDelegate, UITableVi
         postTextView.text = post.body
     }
     
-    func setupPostTextView() {
-        view.addSubview(postTextView)
+    func setupPostBackgroundView() {
+        view.addSubview(postBackgroundView)
         NSLayoutConstraint.activate([
-            postTextView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            postTextView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            postTextView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.9),
-            postTextView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.33)
+            postBackgroundView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            postBackgroundView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            postBackgroundView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 1.0),
+            postBackgroundView.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.4)
+        ])
+    }
+    
+    func setupPostTextView() {
+        postBackgroundView.addSubview(postTextView)
+        NSLayoutConstraint.activate([
+            postTextView.topAnchor.constraint(equalTo: postBackgroundView.safeAreaLayoutGuide.topAnchor, constant: 18),
+            postTextView.centerXAnchor.constraint(equalTo: postBackgroundView.centerXAnchor),
+            postTextView.widthAnchor.constraint(equalTo: postBackgroundView.widthAnchor, multiplier: 0.93),
+            postTextView.heightAnchor.constraint(equalTo: postBackgroundView.heightAnchor, multiplier: 0.9)
         ])
     }
     
     func setupTitleLabel() {
         view.addSubview(titleLabel)
         NSLayoutConstraint.activate([
-            titleLabel.topAnchor.constraint(equalTo: postTextView.bottomAnchor, constant: 20),
+            titleLabel.topAnchor.constraint(equalTo: postBackgroundView.bottomAnchor, constant: 20),
             titleLabel.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.95),
             titleLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             titleLabel.heightAnchor.constraint(equalToConstant: 35)

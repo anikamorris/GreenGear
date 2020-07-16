@@ -16,7 +16,7 @@ protocol Section {
 
 struct TopicSection: Section {
     var numberOfItems: Int = 7
-    var topics: [String] = ["deployment", "civilians", "health", "VA", "coming home", "relationships", "substances"]
+    var topics: [String] = ["Deployment", "Civilians", "Health", "VA", "Coming Home", "Relationships", "Substances"]
     
     func configureCell(collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: TopicCell.identifier, for: indexPath) as! TopicCell

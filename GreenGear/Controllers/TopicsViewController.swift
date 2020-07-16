@@ -12,10 +12,11 @@ import UIKit
 class TopicsViewController: UIViewController {
     var collectionView: UICollectionView!
     var sections: [Section] = []
-    var topics: [String] = ["deployment", "civilians", "health", "VA", "coming home", "relationships", "substances"]
+    var topics: [String] = ["Deployment", "Civilians", "Health", "VA", "Coming Home", "Relationships", "Substances"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.title = "Topics"
         setupCollectionView()
     }
     
@@ -51,7 +52,6 @@ extension TopicsViewController: UICollectionViewDataSource {
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        print(sections.count)
         return sections.count
     }
     
@@ -65,10 +65,8 @@ extension TopicsViewController: UICollectionViewDataSource {
 
 extension TopicsViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let feedVC = storyboard?.instantiateViewController(withIdentifier: "FeedVC") else {
-            print("Couldn't instantiate feedVC")
-            return
-        }
+        guard let feedVC = storyboard?.instantiateViewController(withIdentifier: "FeedVC") else { return }
+        feedVC.title = self.topics[indexPath.row]
         self.navigationController?.pushViewController(feedVC, animated: true)
     }
 }

@@ -10,7 +10,7 @@
         <!--All Posts-->
         <scene sceneID="L2N-cC-4m3">
             <objects>
-                <tableViewController storyboardIdentifier="FeedVC" hidesBottomBarWhenPushed="YES" id="8WO-Zj-KLs" customClass="FeedTableViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="FeedVC" id="8WO-Zj-KLs" customClass="FeedTableViewController" customModule="GreenGear" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="N0Z-Wi-8ZT">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
