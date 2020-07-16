@@ -34,11 +34,20 @@ class ProfileViewController: UIViewController {
         
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupSaveButton()
         if let _ = UserDefaults.standard.string(forKey: "UserId") {
             usernameTextField.text = UserDefaults.standard.string(forKey: "Username")
             branchTextField.text = UserDefaults.standard.string(forKey: "Branch")
             yearsTextField.text = UserDefaults.standard.string(forKey: "Years")
         }
+    }
+    
+    func setupSaveButton() {
+        saveButton.layer.cornerRadius = 5
+        saveButton.clipsToBounds = true
+        saveButton.layer.borderWidth = 1
+        saveButton.layer.borderColor = UIColor.darkText.cgColor
+        saveButton.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {

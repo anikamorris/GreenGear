@@ -127,47 +127,52 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="Iyd-dx-1qH">
-                                <rect key="frame" x="15" y="178" width="384" height="200"/>
+                                <rect key="frame" x="15" y="133" width="384" height="200"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sH-fb-wlQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="384" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Choose a unique username" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1sH-fb-wlQ">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="36.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="years active" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4H-Hp-hwx">
-                                        <rect key="frame" x="0.0" y="79" width="384" height="42"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What years were you active? (eg. 1998-2007)" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y4H-Hp-hwx">
+                                        <rect key="frame" x="0.0" y="81.5" width="384" height="37"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="branch" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rEg-VH-e4l">
-                                        <rect key="frame" x="0.0" y="166" width="384" height="34"/>
+                                    <textField opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="What's your branch?" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="rEg-VH-e4l">
+                                        <rect key="frame" x="0.0" y="163.5" width="384" height="36.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="rEg-VH-e4l" firstAttribute="height" secondItem="Y4H-Hp-hwx" secondAttribute="height" id="HX6-V9-9dw"/>
+                                    <constraint firstItem="1sH-fb-wlQ" firstAttribute="height" secondItem="Y4H-Hp-hwx" secondAttribute="height" id="Ssw-QK-WyN"/>
                                     <constraint firstAttribute="height" constant="200" id="uLA-Gp-gW6"/>
                                 </constraints>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4a-dh-8LW">
-                                <rect key="frame" x="90" y="468" width="234" height="30"/>
+                                <rect key="frame" x="90" y="383" width="234" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="byU-Fk-MTf"/>
+                                    <constraint firstAttribute="height" constant="50" id="byU-Fk-MTf"/>
                                 </constraints>
-                                <state key="normal" title="Save"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="saveButtonTapped:" destination="3BA-g0-E04" eventType="touchUpInside" id="8xi-dH-wfn"/>
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" red="0.52156862745098043" green="0.23529411764705882" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="C4a-dh-8LW" firstAttribute="leading" secondItem="MlD-cj-Wob" secondAttribute="leading" constant="90" id="Dbe-qW-SDA"/>
                             <constraint firstItem="MlD-cj-Wob" firstAttribute="trailing" secondItem="C4a-dh-8LW" secondAttribute="trailing" constant="90" id="EiD-5i-p59"/>
-                            <constraint firstItem="Iyd-dx-1qH" firstAttribute="top" secondItem="MlD-cj-Wob" secondAttribute="top" constant="90" id="bXu-H1-oJy"/>
+                            <constraint firstItem="Iyd-dx-1qH" firstAttribute="top" secondItem="MlD-cj-Wob" secondAttribute="top" constant="45" id="bXu-H1-oJy"/>
                             <constraint firstItem="Iyd-dx-1qH" firstAttribute="leading" secondItem="MlD-cj-Wob" secondAttribute="leading" constant="15" id="dNs-k9-XLB"/>
                             <constraint firstItem="MlD-cj-Wob" firstAttribute="trailing" secondItem="Iyd-dx-1qH" secondAttribute="trailing" constant="15" id="uzG-P9-PGL"/>
-                            <constraint firstItem="C4a-dh-8LW" firstAttribute="top" secondItem="Iyd-dx-1qH" secondAttribute="bottom" constant="90" id="xzW-N0-gnZ"/>
+                            <constraint firstItem="C4a-dh-8LW" firstAttribute="top" secondItem="Iyd-dx-1qH" secondAttribute="bottom" constant="50" id="xzW-N0-gnZ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MlD-cj-Wob"/>
                     </view>
@@ -211,6 +216,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="tintColor">
+                                <color key="value" red="0.12941176470588234" green="0.21568627450980393" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
                     </tabBar>
                     <connections>
                         <segue destination="UB6-hx-Vad" kind="relationship" relationship="viewControllers" id="o2P-CQ-KR0"/>
