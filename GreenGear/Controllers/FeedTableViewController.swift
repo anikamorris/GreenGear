@@ -61,7 +61,7 @@ class FeedTableViewController: UITableViewController {
 }
 
 extension FeedTableViewController: NewPostDelegate {
-    func appendPost(post: Post) {
-        self.posts.append(post)
+    func prependPost(post: Post) {
+        self.posts.insert(post, at: 0)
     }
 }

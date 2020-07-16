@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 protocol NewPostDelegate {
-    func appendPost(post: Post)
+    func prependPost(post: Post)
 }
 
 class NewPostViewController: UIViewController {
@@ -112,7 +112,7 @@ class NewPostViewController: UIViewController {
         API().newPost(post: newPost) { [weak self] (result) in
             print(result)
             guard let self = self else { return }
-            self.newPostDelegate.appendPost(post: newPost)
+            self.newPostDelegate.prependPost(post: newPost)
             self.dismiss(animated: true, completion: nil)
         }
         
