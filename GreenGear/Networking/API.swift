@@ -10,6 +10,40 @@ import Foundation
 
 class API {
     
+    func createUser(user: User, _ completion: @escaping (Result<Any>) -> ()) {
+        let session = URLSession.shared
+        let url = URL(string: "https://green-gear-ld.herokuapp.com/api/user/create/")
+        var request = URLRequest(url: url!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        let jsonData = try! JSONEncoder().encode(user)
+        request.httpBody = jsonData
+        
+        session.dataTask(with: request, completionHandler: { (data, response, error) -> Void in
+            if error != nil { print("POST Request: Communication error: \(error!)") }
+//            Response.handleResponse(for: response as! HTTPURLResponse)
+            if data != nil {
+                do {
+                    let resultObject = try JSONSerialization.jsonObject(with: data!, options: [])
+                     DispatchQueue.main.async(execute: {
+                        print("Results from POST request:\n\(resultObject)")
+                        completion(Result.success(resultObject))
+                     })
+                } catch {
+                     DispatchQueue.main.async(execute: {
+                        completion(Result.failure(NetworkError.couldNotParse))
+                     })
+                }
+            } else {
+                DispatchQueue.main.async(execute: {
+                    completion(Result.failure(NetworkError.noResponse))
+                })
+            }
+        }).resume()
+    }
+    
     // Returns all posts in the database
     func getAllPosts() {
         
@@ -38,23 +72,5 @@ class API {
     func deletePost(postId: Int) {
         
     }
-    
-    // Return all comments associated with a post
-    func getComments(postId: Int) {
-        
-    }
-    
-    // Saves a new comment to be associated with a particular post
-    func newComment(postId: Int) {
-        
-    }
-    
-    // Updates a specific comment in the database by finding the comment ID
-    func updateComment(commentId: Int) {
-        
-    }
-    
-    func deleteComment(commentId: Int) {
-        
-    }
+
 }

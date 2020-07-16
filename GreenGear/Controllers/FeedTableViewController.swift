@@ -20,10 +20,10 @@ class FeedTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        let user = User(username: "bob", position: "litty", yearsActive: "1998-2001", avatar: UIImage(systemName: "person")!)
-        let comment1 = Comment(content: "I hella feel you bro", user: user)
-        let comment2 = Comment(content: "I hella feel you too bro", user: user)
-        let post = Post(content: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.", user: user, comments: [comment1, comment2])
+        let user = User(username: "bob", branch: "army", years: "2003-2007")
+//        let comment1 = Comment(content: "I hella feel you bro", user: user)
+//        let comment2 = Comment(content: "I hella feel you too bro", user: user)
+        let post = Post(content: "Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.", user: user, comments: [])
         
         posts.append(post)
     }
@@ -41,9 +41,8 @@ class FeedTableViewController: UITableViewController {
         let post = posts[indexPath.row]
         let user = post.user
         cell.postTextView.text = post.content
-        cell.positionLabel.text = user.position
-        cell.yearsActiveLabel.text = user.yearsActive
-        cell.avatarImageView.image = user.avatar
+        cell.yearsActiveLabel.text = user.years
+        cell.positionLabel.text = user.branch
         return cell
     }
     

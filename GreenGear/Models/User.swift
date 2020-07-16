@@ -9,9 +9,8 @@
 import Foundation
 import UIKit
 
-struct User {
+struct User: Codable {
     let username: String
-    let position: String
-    let yearsActive: String
-    let avatar: UIImage?
+    let branch: String
+    let years: String
 }
