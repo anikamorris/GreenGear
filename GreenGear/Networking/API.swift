@@ -45,6 +45,10 @@ class API {
         }).resume()
     }
     
+    func getUser() {
+        
+    }
+    
     // Returns all posts in the database
     func getAllPosts() {
         

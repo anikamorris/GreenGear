@@ -21,6 +21,8 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var branchTextField: UITextField!
     @IBOutlet weak var saveButton: UIButton!
     
+    var user: User?
+    
     var profileState: ProfileState = .edit {
         didSet {
             switch profileState {
@@ -29,9 +31,14 @@ class ProfileViewController: UIViewController {
             }
         }
     }
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let _ = UserDefaults.standard.string(forKey: "UserId") {
+            usernameTextField.text = UserDefaults.standard.string(forKey: "Username")
+            branchTextField.text = UserDefaults.standard.string(forKey: "Branch")
+            yearsTextField.text = UserDefaults.standard.string(forKey: "Years")
+        }
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {
@@ -39,23 +46,35 @@ class ProfileViewController: UIViewController {
         let years = yearsTextField.text!
         let branch = branchTextField.text!
         let user = User(username: username, branch: branch, years: years)
+        self.user = user
         API().createUser(user: user) { [weak self] (result) in
             guard let self = self else { return }
             switch result {
             case let .success(id):
                 let stringId = id as? String
                 if let safeId = stringId {
-                    UserDefaults.standard.set(safeId, forKey: "UserId")
+                    self.saveUserToUserDefaults(
+                        id: safeId,
+                        username: self.user!.username,
+                        branch: self.user!.branch,
+                        years: self.user!.years
+                    )
                     self.profileState = .saved
                     self.showAlert(title: "Success", message: "Profile saved!")
                 } else {
-                    self.showAlert(title: "Error saving profile", message: "Try Again")
+                    self.showAlert(title: "Error", message: "Unique username required.")
                 }
-                
             case let .failure(error):
-                self.showAlert(title: "Error saving profile", message: error.localizedDescription)
+                self.showAlert(title: "Error", message: error.localizedDescription)
             }
         }
+    }
+    
+    func saveUserToUserDefaults(id: String, username: String, branch: String, years: String) {
+        UserDefaults.standard.set(id, forKey: "UserId")
+        UserDefaults.standard.set(username, forKey: "Username")
+        UserDefaults.standard.set(branch, forKey: "Branch")
+        UserDefaults.standard.set(years, forKey: "Years")
     }
     
     func editState() {
