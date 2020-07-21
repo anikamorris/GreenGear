@@ -22,6 +22,7 @@ class ProfileViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSaveButton()
+        setupTextFields()
         if let _ = UserDefaults.standard.string(forKey: "UserId") {
             hasBeenSaved = true
             self.savedState()
@@ -29,6 +30,12 @@ class ProfileViewController: UIViewController {
             branchTextField.text = UserDefaults.standard.string(forKey: "Branch")
             yearsTextField.text = UserDefaults.standard.string(forKey: "Years")
         }
+    }
+    
+    func setupTextFields() {
+        usernameTextField.setPlaceholder(text: "Choose a unique username")
+        yearsTextField.setPlaceholder(text: "What years were you active? (eg. 1998-2007)")
+        branchTextField.setPlaceholder(text: "What's your branch?")
     }
     
     func setupSaveButton() {
@@ -130,5 +137,11 @@ extension UIViewController {
             vSpinner = nil
         }
     }
+}
 
+extension UITextField {
+    func setPlaceholder(text: String) {
+        self.attributedPlaceholder = NSAttributedString(string: text,
+                                                        attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightText])
+    }
 }
