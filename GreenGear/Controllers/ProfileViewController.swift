@@ -36,6 +36,20 @@ class ProfileViewController: UIViewController {
         usernameTextField.setPlaceholder(text: "Choose a unique username")
         yearsTextField.setPlaceholder(text: "What years were you active? (eg. 1998-2007)")
         branchTextField.setPlaceholder(text: "What's your branch?")
+        
+        usernameTextField.setPaddingPoints(10)
+        yearsTextField.setPaddingPoints(10)
+        branchTextField.setPaddingPoints(10)
+        
+        usernameTextField.layer.cornerRadius = 5
+        usernameTextField.clipsToBounds = true
+        
+        yearsTextField.layer.cornerRadius = 5
+        yearsTextField.clipsToBounds = true
+        
+        branchTextField.layer.cornerRadius = 5
+        branchTextField.clipsToBounds = true
+        
     }
     
     func setupSaveButton() {
@@ -43,7 +57,7 @@ class ProfileViewController: UIViewController {
         saveButton.clipsToBounds = true
         saveButton.layer.borderWidth = 1
         saveButton.layer.borderColor = UIColor.white.cgColor
-        saveButton.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
+        saveButton.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.2196078431, blue: 0.1803921569, alpha: 1)
     }
     
     @IBAction func saveButtonTapped(_ sender: Any) {

@@ -23,7 +23,7 @@ class TopicCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
+        contentView.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.2196078431, blue: 0.1803921569, alpha: 1)
         contentView.layer.cornerRadius = 8
         contentView.clipsToBounds = true
         setUpCell()

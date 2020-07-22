@@ -17,7 +17,7 @@
 		CF40A28A24A6FA8300CBACB4 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28924A6FA8300CBACB4 /* Post.swift */; };
 		CF40A28C24A6FA9000CBACB4 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A28B24A6FA9000CBACB4 /* Comment.swift */; };
 		CF40A29124A6FAE400CBACB4 /* PostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF40A29024A6FAE400CBACB4 /* PostCell.swift */; };
-		CF4AC94924C6B83400275A88 /* TextField+Placeholder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4AC94824C6B83400275A88 /* TextField+Placeholder.swift */; };
+		CF4AC94924C6B83400275A88 /* TextField+Placeholder+Padding.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4AC94824C6B83400275A88 /* TextField+Placeholder+Padding.swift */; };
 		CF4AC94B24C6B84500275A88 /* ViewController+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4AC94A24C6B84500275A88 /* ViewController+Spinner.swift */; };
 		CF4E702824AFD13B003B6D91 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E702724AFD13B003B6D91 /* ProfileViewController.swift */; };
 		CF4E703624B6C7E8003B6D91 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF4E703524B6C7E8003B6D91 /* API.swift */; };
@@ -45,7 +45,7 @@
 		CF40A28924A6FA8300CBACB4 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		CF40A28B24A6FA9000CBACB4 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		CF40A29024A6FAE400CBACB4 /* PostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostCell.swift; sourceTree = "<group>"; };
-		CF4AC94824C6B83400275A88 /* TextField+Placeholder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Placeholder.swift"; sourceTree = "<group>"; };
+		CF4AC94824C6B83400275A88 /* TextField+Placeholder+Padding.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TextField+Placeholder+Padding.swift"; sourceTree = "<group>"; };
 		CF4AC94A24C6B84500275A88 /* ViewController+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Spinner.swift"; sourceTree = "<group>"; };
 		CF4E702724AFD13B003B6D91 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		CF4E703524B6C7E8003B6D91 /* API.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
@@ -108,6 +108,7 @@
 		CF40A28D24A6FAB400CBACB4 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				CFF276AD24C05E2D0095BE4C /* TopicSection.swift */,
 				CF40A27724A6F16300CBACB4 /* PostDetailViewController.swift */,
 				CF40A28724A6FA5000CBACB4 /* FeedTableViewController.swift */,
 				CF4E702724AFD13B003B6D91 /* ProfileViewController.swift */,
@@ -122,7 +123,6 @@
 			children = (
 				CF40A29024A6FAE400CBACB4 /* PostCell.swift */,
 				CFC4833424A708CF00EB7692 /* CommentCell.swift */,
-				CFF276AD24C05E2D0095BE4C /* TopicSection.swift */,
 				CFF276AF24C05E400095BE4C /* TopicCell.swift */,
 			);
 			path = Views;
@@ -141,7 +141,7 @@
 		CF4AC94724C6B81200275A88 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				CF4AC94824C6B83400275A88 /* TextField+Placeholder.swift */,
+				CF4AC94824C6B83400275A88 /* TextField+Placeholder+Padding.swift */,
 				CF4AC94A24C6B84500275A88 /* ViewController+Spinner.swift */,
 			);
 			path = Extensions;
@@ -243,7 +243,7 @@
 				CF4E703824B6CB22003B6D91 /* NewPostViewController.swift in Sources */,
 				CFE330B424BFEDBA00663388 /* Response.swift in Sources */,
 				CF40A27424A6F16300CBACB4 /* AppDelegate.swift in Sources */,
-				CF4AC94924C6B83400275A88 /* TextField+Placeholder.swift in Sources */,
+				CF4AC94924C6B83400275A88 /* TextField+Placeholder+Padding.swift in Sources */,
 				CFC4833124A6FDD300EB7692 /* User.swift in Sources */,
 				CFC4833624A708CF00EB7692 /* CommentCell.swift in Sources */,
 				CF40A27624A6F16300CBACB4 /* SceneDelegate.swift in Sources */,

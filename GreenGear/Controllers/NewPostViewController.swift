@@ -58,7 +58,7 @@ class NewPostViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = #colorLiteral(red: 0.1294117719, green: 0.2156862766, blue: 0.06666667014, alpha: 1)
+        self.view.backgroundColor = #colorLiteral(red: 0.01176470588, green: 0.2196078431, blue: 0.1803921569, alpha: 1)
         setupPostLabel()
         setupTitleTextField()
         setupPostTextView()
