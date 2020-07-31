@@ -84,10 +84,16 @@ class API {
         let url = URL(string: "https://green-gear-ld.herokuapp.com/api/post/retrieve/")
         let request = URLRequest(url: url!)
         session.dataTask(with: request) { data, response, error in
-            if let error = error { return }
-            let responseResult = Response.handleResponse(for: response as! HTTPURLResponse)
+            if let error = error {
+                DispatchQueue.main.async {
+                    completion(Result.failure(error))
+                }
+                return
+            }
+            let responseResult = Response.handleResponse(for: (response as! HTTPURLResponse))
             switch responseResult {
             case let .success(message):
+                print(message)
                 guard let data = data else {
                     DispatchQueue.main.async {
                         completion(Result.failure(NetworkError.noData))
@@ -99,13 +105,15 @@ class API {
                     print("\n" + String(decoding: data, as: UTF8.self))
                     return
                 }
-//                completion(Result.success(result!.articles))
+                DispatchQueue.main.async {
+                    completion(Result.success(result!))
+                }
             case let .failure(error):
                 DispatchQueue.main.async {
                     completion(Result.failure(error))
                 }
             }
-        }
+        }.resume()
         
     }
     

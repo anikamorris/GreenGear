@@ -17,6 +17,5 @@ struct Post: Codable {
 struct PostAPIResponse: Decodable {
     let success: Bool
     let result: [Post]
-    
 }
 
